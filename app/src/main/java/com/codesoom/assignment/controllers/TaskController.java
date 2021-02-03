@@ -17,6 +17,10 @@ public class TaskController {
         this.taskService = taskService;
     }
 
+    public TaskController() {
+
+    }
+
     @GetMapping
     public List<Task> list() {
         return taskService.getTasks();
@@ -28,7 +32,6 @@ public class TaskController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public Task create(@RequestBody Task task) {
         return taskService.createTask(task);
     }
